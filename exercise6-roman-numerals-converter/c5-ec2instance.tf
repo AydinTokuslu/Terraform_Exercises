@@ -6,6 +6,6 @@ resource "aws_instance" "myec2vm" {
   key_name = var.instance_keypair
   vpc_security_group_ids = [ aws_security_group.webserver.id ]
   tags = {
-    "Name" = "Kittens Carousel Static Website"
+    "Name" = "Roman Numerals Converter"
   }
 }

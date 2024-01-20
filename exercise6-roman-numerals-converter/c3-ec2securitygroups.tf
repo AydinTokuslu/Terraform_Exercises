@@ -1,7 +1,7 @@
 
 resource "aws_security_group" "webserver" {
   name        = "webserver-secgrp"
-  description = "WebServerSecurityGroup"
+  description = "Enable HTTP for Flask Web Server and SSH port to secure reach to my EC2"
   ingress {
     description = "Allow Port 22"
     from_port   = 22
