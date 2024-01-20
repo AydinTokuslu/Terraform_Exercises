@@ -8,7 +8,7 @@ resource "aws_db_instance" "my-database-server" {
   engine_version = "8.0.19"
   instance_class = "db.t2.micro"
   username       = "admin"
-  password       = "Clarusway_1"
+  password       = "awsdevops13"
   port           = 3306
 
   skip_final_snapshot = true
