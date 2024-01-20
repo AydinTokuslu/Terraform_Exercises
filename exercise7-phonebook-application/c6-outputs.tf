@@ -1,13 +1,5 @@
 
-
-# EC2 Instance Public IP
-output "instance_publicip" {
-  description = "EC2 Instance Public IP"
-  value = aws_instance.myec2vm.public_ip
-}
-
-# EC2 Instance Public DNS
-output "instance_publicdns" {
-  description = "EC2 Instance Public DNS"
-  value = aws_instance.myec2vm.public_dns
+output "dns_name" {
+  description = "The DNS name of the load balancer of Phonebook."
+  value       = "http://${aws_lb.terramino.dns_name}"
 }

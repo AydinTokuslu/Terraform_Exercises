@@ -10,4 +10,13 @@ resource "aws_instance" "myec2vm" {
   }
 }
 
+module "aws_default_vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "3.11.0"
+  name = "default"
+  public_subnets = aws_default_vpc.default.id
+  azs = aws_default_vpc.default
+}
+
+
 
