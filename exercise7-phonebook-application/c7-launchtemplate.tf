@@ -5,8 +5,15 @@ resource "aws_launch_template" "my_launch_template" {
   image_id      = data.aws_ami.amzlinux2.id
   instance_type = var.instance_type
 
-  vpc_security_group_ids = [aws_security_group.WebServerSecurityGroup.id]
+  vpc_security_group_ids = ["${aws_security_group.WebServerSecurityGroup.id}"]
   key_name               = var.instance_keypair
   user_data              = filebase64("${path.module}/app1-install.sh")
+
+  tag_specifications {
+    resource_type = "instance"
+    tags = {
+      Name = "Web Server of Phonebook App"
+    }
+  }
 
 }

@@ -2,6 +2,8 @@
 resource "aws_security_group" "ALBSecurityGroup" {
   name        = "ALBSecurityGroup"
   description = "Enable HTTP for Application Load Balancer"
+  vpc_id      = module.vpc.vpc_id
+
   ingress {
     description = "Allow Port 80"
     from_port   = 80
@@ -26,6 +28,8 @@ resource "aws_security_group" "ALBSecurityGroup" {
 resource "aws_security_group" "WebServerSecurityGroup" {
   name        = "WebServerSecurityGroup"
   description = "Enable HTTP for Flask Web Server and SSH for getting into EC2"
+  vpc_id      = module.vpc.vpc_id
+
   ingress {
     description = "Allow Port 22"
     from_port   = 22
@@ -57,6 +61,8 @@ resource "aws_security_group" "WebServerSecurityGroup" {
 resource "aws_security_group" "MyDBSecurityGroup" {
   name        = "MyDBSecurityGroup"
   description = "MyDBSecurityGroup"
+  vpc_id      = module.vpc.vpc_id
+
   ingress {
     description     = "Allow Port 3306"
     from_port       = 3306

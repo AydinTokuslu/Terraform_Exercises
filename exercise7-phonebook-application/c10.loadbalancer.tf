@@ -2,9 +2,13 @@ resource "aws_lb" "terramino" {
   name               = "lb-phonebook"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [ aws_security_group.ALBSecurityGroup.id ]
-  subnets            = module.aws_default_vpc.public_subnets
-  
+  ip_address_type    = "ipv4"
+  security_groups    = [aws_security_group.ALBSecurityGroup.id]
+  subnets            = module.vpc.public_subnets
+
+  tags = {
+    Environment = "production"
+  }
 }
 
 resource "aws_lb_listener" "terramino" {
