@@ -4,7 +4,7 @@ yum install python3 -y
 pip3 install flask
 pip3 install flask_mysql
 echo "${MyDBURI}" > /home/ec2-user/dbserver.endpoint
-TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXX"
+TOKEN="XXXXXXXXXXXXXXXXXXXXXXXX"
 #FOLDER="https://$TOKEN@raw.githubusercontent.com/AydinTokuslu/private-my-projects/main/Project-004-Phonebook-Application"
 FOLDER="https://$TOKEN@raw.githubusercontent.com/AydinTokuslu/my-private-aws-project/main/Project-004-Phonebook-Application"
 curl -s --create-dirs -o "/home/ec2-user/templates/index.html" -L "$FOLDER"/templates/index.html

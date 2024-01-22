@@ -5,7 +5,7 @@ resource "aws_db_instance" "my-database-server" {
 
   db_name        = "clarusway_phonebook"
   engine         = "mysql"
-  engine_version = "8.0.32"
+  engine_version = "8.0.28"
   instance_class = "db.t2.micro"
   username       = "admin"
   password       = "awsdevops13"
@@ -15,6 +15,8 @@ resource "aws_db_instance" "my-database-server" {
   publicly_accessible = false
 
   db_subnet_group_name    = module.vpc.database_subnet_group_name
-  vpc_security_group_ids  = ["${aws_security_group.MyDBSecurityGroup.id}"]
+  vpc_security_group_ids  = [aws_security_group.MyDBSecurityGroup.id]
   backup_retention_period = 0
+
+
 }
